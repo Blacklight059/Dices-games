@@ -3,6 +3,12 @@
     src: url(https://fonts.google.com/specimen/Lato);
 }
 
+.body {
+    border: 2rem solid red;
+    border-image: linear-gradient(to bottom right, #ed213a, #93291e);
+    border-image-slice: 1;
+}
+
 .header {
     justify-content: space-around;
 
