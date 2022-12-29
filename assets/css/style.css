@@ -2,10 +2,10 @@
 
 html, body {
     font-family: 'Lato', sans-serif;
-    src: url("https://fonts.google.com/specimen/Lato");
+    justify-content: center;
 }
 
-.body {
+body {
     border: 2rem solid red;
     border-image: linear-gradient(to bottom right, #ed213a, #93291e);
     border-image-slice: 1;
@@ -20,17 +20,28 @@ html, body {
 
 }
 
-.Player, .game, .play {
-    justify-content: space-around;
+.new-game {
+    margin: 1rem;
+    padding: auto;
+
+}
+
+
+.Player {
+    justify-content: center;
     margin: auto;
     padding: 2rem;
+    text-align: center;
+}
+
+.play, .game {
+    justify-content: space-around;
+    margin: 10rem;
+
 }
 
 .play {
-    justify-content: space-around;
-    margin: 10rem;
-    padding: 10rem;
-
+    padding-inline: 10rem;
 }
 
 .Player1, .Player2  {
@@ -40,30 +51,35 @@ html, body {
 }
 
 .current1, .current2 {
-    background-color: red;
-    padding-bottom: 20rem;
-    margin: 10rem;
+    background-color: #ea4d4c;
+    width: 100px;
+    height: 200px;
+    padding: 20px;
     text-align: center;
     border-radius: 3rem;
 }
 
-.current, .new-game  {
-    margin: 1rem;
-    padding: 1rem;
+.sum1, .sum2{
+    font-size: 5rem;
+
+}
+.playButton {
+    text-align: center;
 }
 
-.img {
-    box-sizing: inherit;
-    width: 70%;
+
+.img1 {
+    width: 100%;
+    height: 100%;
 }
 
 span {
     color: white;
-    font-size: 10rem;
+    font-size: 5rem;
 }
 
-.scorePlayer1, .scorePlayer2 {
+.scorePlayer1, .scorePlayer2, .newGame {
     justify-content: center;
-    font-size: 10rem;
+    font-size: 5rem;
 
 }

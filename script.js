@@ -3,15 +3,12 @@ var scorePlayer1 = parseInt(document.getElementById('scorePlayer1'));
 var scorePlayer2 = parseInt(document.getElementById('scorePlayer2'));
 var sum1 = parseInt(document.getElementById('sum1'));
 var sum2 = parseInt(document.getElementById('sum2'));
-var msg = () => { alert('Cliquer sur New Game pour rejouer') }
 var gameTour = 0;
 
 //Create class Player
 class Players {
-    constructor(name, currentScore, totalScore, tour, winner) {
+    constructor(name, tour, winner) {
         this.name = name
-        this.currentScore = currentScore
-        this.totalScore = totalScore
         this.tour = false
         this.winner = false
     }
@@ -33,14 +30,12 @@ function newGame() {
     document.getElementById('sum2').innerHTML = 0;
     document.getElementById('scorePlayer1').innerHTML = 0;
     document.getElementById('scorePlayer2').innerHTML = 0;
+    dImg.src = 'assets/img/favicon.png'
 
     console.log(gameTour)
 }
 
-
-
 // function rolldice
-
 function rollTheDice() {
     setTimeout(function() {
 
@@ -92,28 +87,33 @@ function hold() {
 
         PlayerTitle1 = document.getElementById("PlayerTitle1");
         PlayerTitle2 = document.getElementById("PlayerTitle2");
-        PlayerTitle1 = PlayerTitle1.style.fontWeight="normal";
-        PlayerTitle2 = PlayerTitle2.style.fontWeight="bold";
         
         
         
         if (sum1 > 1) {
-            gameTour = 1;
-            
-            console.log(gameTour);
-            console.log(playersGame[1].tour);
-            
+            gameTour = 1;        
+            PlayerTitle1 = PlayerTitle1.style.fontWeight="normal";
+            PlayerTitle2 = PlayerTitle2.style.fontWeight="bold";
             scorePlayer1 = scorePlayer1 + sum1;
             document.getElementById("scorePlayer1").innerHTML = scorePlayer1;
             document.getElementById("sum1").innerHTML = 0;
             
+            if (scorePlayer1 >= 100) {
+                dImg.src = 'assets/img/win1.jpg'
+            }
         }
         if (sum2 > 1) {
             gameTour = 0;
+            PlayerTitle1 = PlayerTitle1.style.fontWeight="bold";        
+            PlayerTitle2 = PlayerTitle2.style.fontWeight="normal";
+
             scorePlayer2 = scorePlayer2 + sum2;
             document.getElementById("scorePlayer2").innerHTML = scorePlayer2;
             document.getElementById("sum2").innerHTML = 0;
-            
+
+            if (scorePlayer2 >= 100) {
+                dImg.src = 'assets/img/win2.jpg'
+            }
         }
         
     } )
