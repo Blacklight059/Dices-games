@@ -15,7 +15,6 @@ body {
     justify-content: space-around;
     width: 70%;
     margin: auto;
-    padding: 50px;
     text-align: center;
 
 }
@@ -36,7 +35,8 @@ body {
 
 .play, .game {
     justify-content: space-around;
-    margin: 10rem;
+    align-items: center;
+    margin: auto;
 
 }
 
