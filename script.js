@@ -4,6 +4,7 @@ var scorePlayer2 = parseInt(document.getElementById('scorePlayer2'));
 var sum1 = parseInt(document.getElementById('sum1'));
 var sum2 = parseInt(document.getElementById('sum2'));
 var gameTour = 0;
+var msg = () => {alert('Cliquer sur New Game pour rejouer')};
 
 //Create class Player
 class Players {
@@ -16,8 +17,8 @@ class Players {
 
 
 // Create players
-var player1 = new Players('player1', 0, 0, false, false);
-var player2 = new Players('player2', 0, 0, false, false);
+var player1 = new Players('player1', false, false);
+var player2 = new Players('player2', false, false);
 var playersGame = [player1, player2]
 
 
@@ -49,7 +50,6 @@ function rollTheDice() {
             playersGame[0].tour = true;
             playersGame[1].tour = false;
         }
-            console.log(playersGame[0].tour)
         if (gameTour == 1 ) {
             playersGame[1].tour = true;
             playersGame[0].tour = false;
@@ -62,16 +62,19 @@ function rollTheDice() {
 
             } else {
                 sum1 = document.getElementById("sum1").innerHTML = 0;
+                gameTour = 1;
+                console.log(gameTour);
             }
             
         } 
         if (playersGame[1].tour === true) {
-                if (randomNumber > 1) {
-                    sum2 = sum2 + randomNumber;
-                    document.getElementById("sum2").innerHTML = sum2;
-                } else {
-                    sum2 = document.getElementById("sum2").innerHTML = 0;
-                }
+            if (randomNumber > 1) {
+                sum2 = sum2 + randomNumber;
+                document.getElementById("sum2").innerHTML = sum2;
+            } else {
+                gameTour = 0;
+                sum2 = document.getElementById("sum2").innerHTML = 0;                    
+            }
             }
         } 
     )
@@ -99,7 +102,9 @@ function hold() {
             document.getElementById("sum1").innerHTML = 0;
             
             if (scorePlayer1 >= 100) {
-                dImg.src = 'assets/img/win1.jpg'
+                btnHold.addEventListener('click', msg);
+                btnRoll.addEventListener('click', msg);
+                dImg.src = 'assets/img/win1.jpg';
             }
         }
         if (sum2 > 1) {
@@ -111,8 +116,10 @@ function hold() {
             document.getElementById("scorePlayer2").innerHTML = scorePlayer2;
             document.getElementById("sum2").innerHTML = 0;
 
-            if (scorePlayer2 >= 100) {
-                dImg.src = 'assets/img/win2.jpg'
+            if (scorePlayer2 >= 100) {                
+                dImg.src = 'assets/img/win2.jpg';
+                btnHold.addEventListener('click', msg);
+                btnRoll.addEventListener('click', msg);
             }
         }
         
