@@ -26,14 +26,15 @@ var playersGame = [player1, player2]
 function newGame() {
 
     PlayerTitle1 = document.getElementById("PlayerTitle1");
+    PlayerTitle2 = document.getElementById("PlayerTitle2");
     PlayerTitle1.style.fontWeight="bold";
+    PlayerTitle2.style.fontWeight="normal";
     document.getElementById('sum1').innerHTML = 0;
     document.getElementById('sum2').innerHTML = 0;
     document.getElementById('scorePlayer1').innerHTML = 0;
     document.getElementById('scorePlayer2').innerHTML = 0;
     dImg.src = 'assets/img/favicon.png'
-
-    console.log(gameTour)
+    gameTour = 0;
 }
 
 // function rolldice
@@ -83,10 +84,12 @@ function rollTheDice() {
 
 // function Hold
 function hold() {
-    setTimeout(function(){
+    setTimeout(function(e){
 
         scorePlayer1 = parseInt(document.getElementById('scorePlayer1').innerHTML);
         scorePlayer2 = parseInt(document.getElementById('scorePlayer2').innerHTML);
+        sum1 = parseInt(document.getElementById('sum1').innerHTML);
+        sum2 = parseInt(document.getElementById('sum2').innerHTML);
 
         PlayerTitle1 = document.getElementById("PlayerTitle1");
         PlayerTitle2 = document.getElementById("PlayerTitle2");
@@ -102,9 +105,12 @@ function hold() {
             document.getElementById("sum1").innerHTML = 0;
             
             if (scorePlayer1 >= 100) {
+                dImg.src = 'assets/img/win1.jpg';
+                document.getElementById('btnHold').onclick = null;
+                document.getElementById('btnRoll').onclick = null;
+
                 btnHold.addEventListener('click', msg);
                 btnRoll.addEventListener('click', msg);
-                dImg.src = 'assets/img/win1.jpg';
             }
         }
         if (sum2 > 1) {
@@ -118,9 +124,13 @@ function hold() {
 
             if (scorePlayer2 >= 100) {                
                 dImg.src = 'assets/img/win2.jpg';
+                document.getElementById('btnHold').onclick = null;
+                document.getElementById('btnRoll').onclick = null;
+
+
                 btnHold.addEventListener('click', msg);
                 btnRoll.addEventListener('click', msg);
-            }
+                }
         }
         
     } )
